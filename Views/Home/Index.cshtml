@@ -2,8 +2,20 @@
     ViewData["Title"] = "Robots Directory";
 }
 
-<div>
-    
+<div class = "row">
+    @model List<RobotModel>
+    @foreach (var item in Model)
+    {
+        <div class = "col-xs-3">
+            <img src = @item.Avatar>
+            <h3>@item.Name</h3>
+            <p>
+                <div>@item.Username</div>
+                <div>@item.Job</div>
+                <div>@item.Company</div>
+            </p>
+        </div>
+    }
 </div>
 
     

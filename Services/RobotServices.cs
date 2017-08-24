@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Roboots.Models;
+using System.Linq;
 
 namespace Roboots.Services
 {
@@ -10,15 +11,11 @@ namespace Roboots.Services
     {
         public static List<RobotModel> Builder()
         {
-            JsonSerializer serializer = new JsonSerializer();
-            var botList = new List<RobotModel>();
-
-            using (var reader = new StreamReader(System.IO.File.Open("robots.json", FileMode.Open)))
+            using (var reader = new StreamReader(System.IO.File.Open("database.json", FileMode.Open)))
             {
-                var newBot = JsonConvert.DeserializeObject<RobotModel>(reader.ReadToEnd());
-                botList.Add(newBot);
-            }
-            return botList;
+                var botList = JsonConvert.DeserializeObject<List<RobotModel>>(reader.ReadToEnd());                
+                return botList;
+            }   
         }
     }
 }
