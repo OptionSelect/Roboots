@@ -3,7 +3,7 @@
 <figure><img src = @Model.Avatar></figure>
 <h2>@Model.Name</h2>
 
-<div>Username: @Model.Username</div>
+<p>Username: @Model.Username</p>
 
 @if(@Model.Job == null)
 {
@@ -11,7 +11,21 @@
 } else {
     <p>Job: @Model.Job | Company: @Model.Company</p>
 }
-<p>@Model.Address["city"] | <span>@Model.Address["country"]</span></p>
+
+@if(@Model.Address["city"] == null)
+{
+<p>@Model.Address["street_num"] @Model.Address["street_name"] | <span>@Model.Address["country"]</span></p>
+} else {
+    <p>@Model.Address["street_num"] @Model.Address["street_name"] | @Model.Address["city"] | <span>@Model.Address["country"]</span></p>
+}
+
+<p>@Model.University</p>
+<p>Skills: 
+@foreach(var item in @Model.Skills)
+{
+    <span>@item</span>
+}
+</p>
 <a href = "/"> Back to Database </a>
 
     
