@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Roboots.Models;
 
 namespace Roboots.Controllers
@@ -12,6 +14,11 @@ namespace Roboots.Controllers
     {
         public IActionResult Index()
         {
+            using (var reader = new StreamReader(System.IO.File.Open("database.json", FileMode.Open)))
+            using (var jsonReader = new JsonTextReader(reader))
+            {
+            }
+
             return View();
         }
 
