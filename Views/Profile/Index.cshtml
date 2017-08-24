@@ -3,29 +3,38 @@
 <figure><img src = @Model.Avatar></figure>
 <h2>@Model.Name</h2>
 
-<p>Username: @Model.Username</p>
+<p><strong>Username: </strong>@Model.Username</p>
+<p><strong>Phone: </strong>@Model.Phone</p>
 
 @if(@Model.Job == null)
 {
     <p style = "Color: Red">Available for Hire</p>
 } else {
-    <p>Job: @Model.Job | Company: @Model.Company</p>
+    <p><strong>Job:</strong> @Model.Job | Company: @Model.Company</p>
 }
 
 @if(@Model.Address["city"] == null)
 {
-<p>@Model.Address["street_num"] @Model.Address["street_name"] | <span>@Model.Address["country"]</span></p>
+<p><strong>Address: </strong>@Model.Address["street_num"] @Model.Address["street_name"] | <span>@Model.Address["country"]</span></p>
 } else {
-    <p>@Model.Address["street_num"] @Model.Address["street_name"] | @Model.Address["city"] | <span>@Model.Address["country"]</span></p>
+    <p><strong>Address: </strong>@Model.Address["street_num"] @Model.Address["street_name"] | @Model.Address["city"] | <span>@Model.Address["country"]</span></p>
 }
 
-<p>@Model.University</p>
-<p>Skills: 
-@foreach(var item in @Model.Skills)
+@if(@Model.University != null)
 {
-    <span>@item</span>
+    <p><strong>Education:</strong> @Model.University</p>    
 }
-</p>
+
+@if(@Model.Skills != null)
+{
+    <p><strong>Skills: </strong>
+    @foreach(var item in @Model.Skills)
+    {
+        <span>@item</span>
+    }
+    </p>
+}
+
 <a href = "/"> Back to Database </a>
 
     
