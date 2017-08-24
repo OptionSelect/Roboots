@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Roboots.Models;
+using Roboots.Services;
 
 namespace Roboots.Controllers
 {
@@ -14,9 +15,7 @@ namespace Roboots.Controllers
     {
         public IActionResult Index()
         {
-            var bob = new RobotModel();
-            var robotList = bob.Builder();
-            
+            var robotList = RobotServices.Builder();
             return View(robotList); 
         }
 

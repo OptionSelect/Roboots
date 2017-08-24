@@ -18,20 +18,5 @@ namespace Roboots.Models
         public List<string> Skills { get; set; }
         public string Phone { get; set; }
         public Dictionary<string, string> Address { get; set; }
-
-
-        public List<RobotModel> Builder()
-        {
-            JsonSerializer serializer = new JsonSerializer();
-            var botList = new List<RobotModel>();
-
-            using (var reader = new StreamReader(System.IO.File.Open("robots.json", FileMode.Open)))
-            {
-                var newBot = JsonConvert.DeserializeObject<RobotModel>(reader.ReadToEnd());
-                botList.Add(newBot);
-            }
-            return botList;
-        }
-
     }
 }
