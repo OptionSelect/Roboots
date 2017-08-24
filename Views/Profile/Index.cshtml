@@ -1,0 +1,17 @@
+@model RobotModel
+
+<figure><img src = @Model.Avatar></figure>
+<h2>@Model.Name</h2>
+
+<div>Username: @Model.Username</div>
+
+@if(@Model.Job == null)
+{
+    <p style = "Color: Red">Available for Hire</p>
+} else {
+    <p>Job: @Model.Job | Company: @Model.Company</p>
+}
+<p>@Model.Address["city"] | <span>@Model.Address["country"]</span></p>
+<a href = "/"> Back to Database </a>
+
+    

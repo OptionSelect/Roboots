@@ -8,12 +8,12 @@
     {
         <div class = "col-xs-4">
             <img src = @item.Avatar>
-            <h3>@item.Name</h3>
+            <a href = "/Profile?=@item.ID"><h3>@item.Name</h3></a>
             <p>
                 <div>@item.Username</div>
                 @if(@item.Job == null)
                 {
-                    <p>Available for Hire</p>
+                    <p style = "Color: Red">Available for Hire</p>
                 } else {
                     <p>@item.Job | @item.Company</p>
                 }
