@@ -14,12 +14,10 @@ namespace Roboots.Controllers
     {
         public IActionResult Index()
         {
-            using (var reader = new StreamReader(System.IO.File.Open("database.json", FileMode.Open)))
-            using (var jsonReader = new JsonTextReader(reader))
-            {
-            }
-
-            return View();
+            var bob = new RobotModel();
+            var robotList = bob.Builder();
+            
+            return View(robotList); 
         }
 
         public IActionResult About()
